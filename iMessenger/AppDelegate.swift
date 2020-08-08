@@ -10,9 +10,17 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    
+    let REST_API_URL = "http://info121.sytes.net/RestAPIInfoMessage/MyLimoService.svc/"
+    
+    
+    var USER_NAME = ""
+    var DEVICE_ID = ""
+    var MOBILE_KEY = ""
+    var SECRET_KEY = ""
+    var FCM_TOKEN = "nil"
+    
+   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
