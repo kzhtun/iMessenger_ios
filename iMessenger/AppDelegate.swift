@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var USER_NAME = ""
     var DEVICE_ID = ""
+    var MOBILE_NO = ""
     var MOBILE_KEY = ""
     var SECRET_KEY = ""
+    var AUT_TOKEN = ""
     var FCM_TOKEN = "nil"
     
    

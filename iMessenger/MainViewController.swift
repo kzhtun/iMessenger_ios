@@ -13,39 +13,78 @@ import Toast_Swift
 
 class MainViewController: UIViewController {
     
-    
+    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let App = UIApplication.shared.delegate as! AppDelegate
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        //               let registerVC = storyBoard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
+        //
+        //                              registerVC.modalPresentationStyle = .fullScreen
+        //                              self.present(registerVC, animated: true, completion: nil)
+        //
+        //
+        //           print("Load Register VC")
+        
+        validateUser()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+     
         print(getDeviceID())
-        print(showMessage(msg: "Global Hello"))
-        
         print(getSecretKey())
         print(getMobileKey())
         
+        
+    }
+    
+   
+    
+    public func getUserHP(){
+        Router.sharedInstance().GetUserHP(deviceId: getDeviceID(),  success: {
+            (successObject) in
+            if( successObject.responsemessage?.uppercased() == "VALID"){
+                self.App.MOBILE_NO = successObject.UserHP!.replacingOccurrences(of: "+65", with: "")
+               
+                
+                // present Messages Screen
+                let messageVC = self.storyBoard.instantiateViewController(withIdentifier: "MessageVC") as! MessageViewController
+                
+                messageVC.modalPresentationStyle = .fullScreen
+                self.present(messageVC, animated: true, completion: nil)
+                
+            }else{
+                self.view.makeToast("Error when getting mobile number")
+            }
+        }, failure: {
+            (failureObject) in
+            print(failureObject as Any)
+        })
+    }
+    
+    private func validateUser(){
         Router.sharedInstance().ValidateUser(deviceId: getDeviceID(), fcmToken: App.FCM_TOKEN, success: {
             (successObject) in
             
-             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             // open Register Screen
             if( successObject.responsemessage?.uppercased() == "INVALID"){
-                let registerVC = storyBoard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
+                self.view.makeToast("Device is not register yet.")
+                let registerVC = self.storyBoard.instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
                 
                 registerVC.modalPresentationStyle = .fullScreen
                 self.present(registerVC, animated: true, completion: nil)
                 
             }else{ // open Message List Screen
-                let messageVC = storyBoard.instantiateViewController(withIdentifier: "MessageVC") as! MessageViewController
+                self.view.makeToast("Registered device found.")
+                self.App.AUT_TOKEN = successObject.token!
+                self.getUserHP()
                 
-                messageVC.modalPresentationStyle = .fullScreen
-                self.present(messageVC, animated: true, completion: nil)
             }
             
             print(successObject)
             
-            self.view.makeToast("Success Call")
             
         }, failure: {
             (failureObject) in
@@ -53,7 +92,6 @@ class MainViewController: UIViewController {
         })
         
     }
-    
 }
 
 //    func validateUser(){

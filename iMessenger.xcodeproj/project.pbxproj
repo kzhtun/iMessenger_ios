@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		70135BFDC98B8AD19C21AF82 /* Pods_iMessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF55902AEC59AEB9A710457 /* Pods_iMessenger.framework */; };
+		D00C383624E94E5500BA0EE5 /* HeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C383424E94E5500BA0EE5 /* HeaderTableCell.swift */; };
+		D00C383724E94E5500BA0EE5 /* HeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00C383524E94E5500BA0EE5 /* HeaderTableCell.xib */; };
+		D00C383A24EA2A3700BA0EE5 /* NoMessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C383824EA2A3700BA0EE5 /* NoMessageTableCell.swift */; };
+		D00C383B24EA2A3700BA0EE5 /* NoMessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00C383924EA2A3700BA0EE5 /* NoMessageTableCell.xib */; };
 		D0112A1E24DE5DBB00248F09 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0112A1D24DE5DBB00248F09 /* MessageViewController.swift */; };
 		D056015C24DA783200A01541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056015B24DA783200A01541 /* AppDelegate.swift */; };
 		D056015E24DA783200A01541 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056015D24DA783200A01541 /* SceneDelegate.swift */; };
@@ -16,6 +20,13 @@
 		D056016524DA783300A01541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D056016424DA783300A01541 /* Assets.xcassets */; };
 		D056017324DA93F800A01541 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056017224DA93F800A01541 /* RegisterViewController.swift */; };
 		D056017724DAA46700A01541 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056017624DAA46700A01541 /* Util.swift */; };
+		D077A39A24E3E71A0022668F /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D077A39924E3E71A0022668F /* MessageDetail.swift */; };
+		D077A39E24E40B8D0022668F /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D077A39C24E40B8D0022668F /* MessageTableCell.swift */; };
+		D077A39F24E40B8D0022668F /* MessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D077A39D24E40B8D0022668F /* MessageTableCell.xib */; };
+		D0B62B2124EA5B00007B820E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B62B2024EA5B00007B820E /* ProfileViewController.swift */; };
+		D0B62B2324EA6982007B820E /* ProfileDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B62B2224EA6982007B820E /* ProfileDetail.swift */; };
+		D0B62B2624EA720F007B820E /* DevicesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B62B2424EA720F007B820E /* DevicesTableCell.swift */; };
+		D0B62B2724EA720F007B820E /* DevicesTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0B62B2524EA720F007B820E /* DevicesTableCell.xib */; };
 		D0CC7ED224DBF002006DE262 /* ResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CC7ED124DBF002006DE262 /* ResponseObject.swift */; };
 		D0CC7ED524DD039C006DE262 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CC7ED424DD039C006DE262 /* Router.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +35,10 @@
 		1815568121C195D794376B54 /* Pods-iMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessenger.debug.xcconfig"; path = "Target Support Files/Pods-iMessenger/Pods-iMessenger.debug.xcconfig"; sourceTree = "<group>"; };
 		3C08D2FB4BDC281414041060 /* Pods-iMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessenger.release.xcconfig"; path = "Target Support Files/Pods-iMessenger/Pods-iMessenger.release.xcconfig"; sourceTree = "<group>"; };
 		4BF55902AEC59AEB9A710457 /* Pods_iMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00C383424E94E5500BA0EE5 /* HeaderTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableCell.swift; sourceTree = "<group>"; };
+		D00C383524E94E5500BA0EE5 /* HeaderTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableCell.xib; sourceTree = "<group>"; };
+		D00C383824EA2A3700BA0EE5 /* NoMessageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMessageTableCell.swift; sourceTree = "<group>"; };
+		D00C383924EA2A3700BA0EE5 /* NoMessageTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoMessageTableCell.xib; sourceTree = "<group>"; };
 		D0112A1D24DE5DBB00248F09 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		D056015824DA783200A01541 /* iMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D056015B24DA783200A01541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +49,13 @@
 		D056016924DA783300A01541 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D056017224DA93F800A01541 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D056017624DAA46700A01541 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		D077A39924E3E71A0022668F /* MessageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
+		D077A39C24E40B8D0022668F /* MessageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
+		D077A39D24E40B8D0022668F /* MessageTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableCell.xib; sourceTree = "<group>"; };
+		D0B62B2024EA5B00007B820E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D0B62B2224EA6982007B820E /* ProfileDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetail.swift; sourceTree = "<group>"; };
+		D0B62B2424EA720F007B820E /* DevicesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesTableCell.swift; sourceTree = "<group>"; };
+		D0B62B2524EA720F007B820E /* DevicesTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DevicesTableCell.xib; sourceTree = "<group>"; };
 		D0CC7ED124DBF002006DE262 /* ResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObject.swift; sourceTree = "<group>"; };
 		D0CC7ED424DD039C006DE262 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +120,7 @@
 		D056017024DA792C00A01541 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				D077A39B24E40B630022668F /* Cell */,
 				D0CC7ED324DD037B006DE262 /* Network */,
 				D0CC7ED024DBEF81006DE262 /* Models */,
 				D056017524DA9C8900A01541 /* Helpers */,
@@ -115,6 +138,7 @@
 				D056015F24DA783200A01541 /* MainViewController.swift */,
 				D056017224DA93F800A01541 /* RegisterViewController.swift */,
 				D0112A1D24DE5DBB00248F09 /* MessageViewController.swift */,
+				D0B62B2024EA5B00007B820E /* ProfileViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -127,10 +151,27 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		D077A39B24E40B630022668F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D077A39C24E40B8D0022668F /* MessageTableCell.swift */,
+				D077A39D24E40B8D0022668F /* MessageTableCell.xib */,
+				D00C383424E94E5500BA0EE5 /* HeaderTableCell.swift */,
+				D00C383524E94E5500BA0EE5 /* HeaderTableCell.xib */,
+				D00C383824EA2A3700BA0EE5 /* NoMessageTableCell.swift */,
+				D00C383924EA2A3700BA0EE5 /* NoMessageTableCell.xib */,
+				D0B62B2424EA720F007B820E /* DevicesTableCell.swift */,
+				D0B62B2524EA720F007B820E /* DevicesTableCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		D0CC7ED024DBEF81006DE262 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				D0CC7ED124DBF002006DE262 /* ResponseObject.swift */,
+				D077A39924E3E71A0022668F /* MessageDetail.swift */,
+				D0B62B2224EA6982007B820E /* ProfileDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,8 +244,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D077A39F24E40B8D0022668F /* MessageTableCell.xib in Resources */,
+				D00C383724E94E5500BA0EE5 /* HeaderTableCell.xib in Resources */,
 				D056016524DA783300A01541 /* Assets.xcassets in Resources */,
 				D056016324DA783200A01541 /* Main.storyboard in Resources */,
+				D0B62B2724EA720F007B820E /* DevicesTableCell.xib in Resources */,
+				D00C383B24EA2A3700BA0EE5 /* NoMessageTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,10 +304,17 @@
 			files = (
 				D056016024DA783200A01541 /* MainViewController.swift in Sources */,
 				D056015C24DA783200A01541 /* AppDelegate.swift in Sources */,
+				D077A39E24E40B8D0022668F /* MessageTableCell.swift in Sources */,
+				D00C383624E94E5500BA0EE5 /* HeaderTableCell.swift in Sources */,
+				D0B62B2324EA6982007B820E /* ProfileDetail.swift in Sources */,
 				D0112A1E24DE5DBB00248F09 /* MessageViewController.swift in Sources */,
+				D00C383A24EA2A3700BA0EE5 /* NoMessageTableCell.swift in Sources */,
 				D056017724DAA46700A01541 /* Util.swift in Sources */,
 				D0CC7ED524DD039C006DE262 /* Router.swift in Sources */,
 				D0CC7ED224DBF002006DE262 /* ResponseObject.swift in Sources */,
+				D077A39A24E3E71A0022668F /* MessageDetail.swift in Sources */,
+				D0B62B2624EA720F007B820E /* DevicesTableCell.swift in Sources */,
+				D0B62B2124EA5B00007B820E /* ProfileViewController.swift in Sources */,
 				D056015E24DA783200A01541 /* SceneDelegate.swift in Sources */,
 				D056017324DA93F800A01541 /* RegisterViewController.swift in Sources */,
 			);

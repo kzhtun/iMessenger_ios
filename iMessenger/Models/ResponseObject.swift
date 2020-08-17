@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ResponseObject: Decodable {
+struct ResponseObject: Codable {
 //    var isUnderMaintenance: String?
 //    var levelDetails: String?
 //    var levelNotCheckedDetails: String?
@@ -23,15 +23,15 @@ struct ResponseObject: Decodable {
 //    var status: String?
 //    var token: String?
     
-    var isUnderMaintenance: String?
-    var levelDetails: String?
-    var levelNotCheckedDetails: String?
-    var messageDetails: String?
-    var profileDetails: String?
-    var roundsDetails: String?
-    var unitDetails: String?
-    var userHP: String?
-    var version: String?
+    var IsUnderMaintenance: String?
+    var LevelDetails: String?
+    var LevelNotCheckedDetails: String?
+    let MessageDetails: [MessageDetail]?
+    var ProfileDetails: [ProfileDetail]?
+    var RoundsDetails: String?
+    var UnitDetails: String?
+    var UserHP: String?
+    var Version: String?
     var lastlogin: String?
     var responsemessage: String?
     var status: String?

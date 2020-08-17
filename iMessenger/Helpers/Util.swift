@@ -17,42 +17,59 @@ func getDeviceID()->String{
     return ""
 }
 
+func covertDateToString(date: Date, formatString: String)->String{
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = formatString
+    
+    return dateFormatter.string(from: date)
+}
+
+func getCurrentDateTimeString(formatString: String)->String{
+    let currentDate = Date()
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = .some(TimeZone(abbreviation: "UTC+08")!)
+    
+    dateFormatter.dateFormat = formatString
+    
+    return dateFormatter.string(from: currentDate)
+}
 
 func getSecretKey()->String{
     let currentDate = Date()
     
-    let format = DateFormatter()
-    format.timeZone = .some(TimeZone(abbreviation: "UTC+08")!)
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = .some(TimeZone(abbreviation: "UTC+08")!)
     
     // 3) Set the format of the altered date.
-    format.dateFormat = "ddMMyyyy"
+    dateFormatter.dateFormat = "ddMMyyyy"
     
-    return "info121" + format.string(from: currentDate)
+    return "info121" + dateFormatter.string(from: currentDate)
 }
 
 func getMobileKey()->String{
     let currentDate = Date()
     
     // 1) Create a DateFormatter() object.
-    let format = DateFormatter()
+    let dateFormatter = DateFormatter()
     
     // 2) Set the current timezone to SG
-    format.timeZone = .some(TimeZone(abbreviation: "UTC+08")!)
+    dateFormatter.timeZone = .some(TimeZone(abbreviation: "UTC+08")!)
     
     // 3) Set the format of the altered date.
-    format.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     
-    format.dateFormat = "dd"
-    let dd = format.string(from: currentDate)
+    dateFormatter.dateFormat = "dd"
+    let dd = dateFormatter.string(from: currentDate)
     
-    format.dateFormat = "MM"
-    let mm = format.string(from: currentDate)
+    dateFormatter.dateFormat = "MM"
+    let mm = dateFormatter.string(from: currentDate)
     
-    format.dateFormat = "yyyy"
-    let yyyy = format.string(from: currentDate)
+    dateFormatter.dateFormat = "yyyy"
+    let yyyy = dateFormatter.string(from: currentDate)
     
-    format.dateFormat = "HH"
-    let hh = format.string(from: currentDate)
+    dateFormatter.dateFormat = "HH"
+    let hh = dateFormatter.string(from: currentDate)
     
     
     // 4) Set the current date, altered by timezone.
