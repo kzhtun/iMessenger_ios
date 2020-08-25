@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class Router{
     let App = UIApplication.shared.delegate as! AppDelegate
@@ -168,7 +167,7 @@ class Router{
         let url = String(format: "%@%@/%@,%@,%@,%@", baseURL, "validateuser", deviceId, fcmToken, getSecretKey(), getMobileKey())
         
         
-        AF.request(url)
+        AF.request(url) 
             .response{
                 (responseData) in
                 guard let data = responseData.data else {return}

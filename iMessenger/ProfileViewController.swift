@@ -10,8 +10,6 @@ import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource  {
     
-    
-    
     let App = UIApplication.shared.delegate as! AppDelegate
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     

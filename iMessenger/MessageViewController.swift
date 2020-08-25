@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KISnackBar
 
 class MessageViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate,  UITableViewDataSource {
     
@@ -31,9 +32,31 @@ class MessageViewController: UIViewController, UIScrollViewDelegate, UITableView
     
     var messageList = [MessageDetail]()
     
+    var previousList = [MessageDetail]()
+    
     var newCount: Int32 = 0
     
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    @objc
+    public func newMessageArrived(){
+        updateTodayMessage()
+        //self.tableView.reloadData()
+        
+        KISnackBar.shared.show(backgroundColor: UIColor.init(cgColor: #colorLiteral(red: 0, green: 0.4343583173, blue: 0.1269307856, alpha: 1)), title: "You have new message.", titleColor: .white,
+                               buttonTitle: "SHOW", buttonTitleColor: .white, duration: .short) {
+                                
+                                // Go to top item
+                                //self.tableView.setContentOffset(.zero, animated: true)
+                                
+                                if self.tableView.numberOfRows(inSection: 0) != 0 {
+                                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                                }
+                                
+        }
+    }
+    
+    
     
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate {
@@ -54,6 +77,13 @@ class MessageViewController: UIViewController, UIScrollViewDelegate, UITableView
                         self.messageList[i].MsgStatus = "READ"
                         self.tableView.reloadData()
                         
+                        self.newCount -= 1
+                        if(self.newCount==0){
+                            self.newMessage.text = "You have no new message"
+                        }else{
+                            self.newMessage.text = "You have \(self.newCount) new messages"
+                        }
+                        
                     }) { (failureObject) in
                         self.view.makeToast(failureObject)
                     }
@@ -62,7 +92,6 @@ class MessageViewController: UIViewController, UIScrollViewDelegate, UITableView
             }
         }
     }
-    
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,22 +108,32 @@ class MessageViewController: UIViewController, UIScrollViewDelegate, UITableView
         queryDateString = covertDateToString(date: queryDate, formatString: "yyyyMMdd")
         
         // load today messages
-        loadMessagesByDate(dateString: queryDateString!)
+        loadMessagesByDate(dateString: queryDateString!, clear: true)
         
         // load yesterday messages
-        loadPreviousDayMessages()
+        //loadPreviousDayMessages()
         
         // pull to refresh
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.tintColor = UIColor.init(rgb: 0x317300)
+        
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.init(rgb: 0x317300)]
+        let attributedTitle = NSAttributedString(string: "Refreshing ...", attributes: attributes)
+        
+        refreshControl.attributedTitle = attributedTitle
+        
+        // refreshControl.attributedTitle = NSAttributedString(string: "Refreshing ...")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(newMessageArrived), name: NSNotification.Name(rawValue: "NewMessageArrived"), object: nil)
     }
     
     @objc
     func refresh(_ sender: AnyObject) {
         queryDate = Date()
         queryDateString = covertDateToString(date: queryDate, formatString: "yyyyMMdd")
-        loadMessagesByDate(dateString: queryDateString!)
+        loadMessagesByDate(dateString: queryDateString!, clear: true)
     }
     
     func loadPreviousDayMessages(){
@@ -102,7 +141,7 @@ class MessageViewController: UIViewController, UIScrollViewDelegate, UITableView
         queryDate = Calendar.current.date(byAdding: dateComponent, to: queryDate)!
         queryDateString = covertDateToString(date: queryDate, formatString: "yyyyMMdd")
         
-        loadMessagesByDate(dateString: queryDateString!)
+        loadMessagesByDate(dateString: queryDateString!, clear: false)
     }
     
     
@@ -140,11 +179,43 @@ class MessageViewController: UIViewController, UIScrollViewDelegate, UITableView
         return tmpList
     }
     
-    func loadMessagesByDate(dateString: String){
-        Router.sharedInstance().GetUserMessagesByDate(mobileNo: App.MOBILE_NO, date: dateString, success: { (successObject) in
+    func updateTodayMessage(){
+        
+        //          let todayDateStr  = covertDateToString(date: Date(), formatString: "M/d/yyyy")
+        let queryDateStr  = covertDateToString(date: Date(), formatString: "yyyyMMdd")
+        
+        Router.sharedInstance().GetUserMessagesByDate(mobileNo: App.MOBILE_NO, date: queryDateStr, success: { (successObject) in
             self.view.makeToast("Updating user messages successful")
             
             
+            self.newCount = 0
+            // clear list first
+            self.messageList.removeAll()
+            // append today messages
+            self.messageList.append(contentsOf: self.groupByDate(rawList: successObject.MessageDetails!))
+            // append previous dates messages
+            self.messageList.append(contentsOf: self.previousList)
+            
+            
+            
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+            
+        }) { (failureObject) in
+            self.view.makeToast(failureObject)
+        }
+    }
+    
+    func loadMessagesByDate(dateString: String, clear: Bool){
+        Router.sharedInstance().GetUserMessagesByDate(mobileNo: App.MOBILE_NO, date: dateString, success: { (successObject) in
+            self.view.makeToast("Updating user messages successful")
+            
+            if(clear){
+                self.messageList.removeAll()
+                self.previousList.removeAll()
+            }else{
+                self.previousList.append(contentsOf: self.groupByDate(rawList: successObject.MessageDetails!))
+            }
             self.messageList.append(contentsOf: self.groupByDate(rawList: successObject.MessageDetails!))
             
             self.tableView.reloadData()
@@ -219,13 +290,13 @@ class MessageViewController: UIViewController, UIScrollViewDelegate, UITableView
         
         let cellItem = tableView.dequeueReusableCell(withIdentifier: MessageTableCell.indentifier, for: index) as! MessageTableCell
         
-        //        cellItem.configure(message: messageList[index.row].Messages ?? "",
-        //                           sender: messageList[index.row].Sender ?? "",
-        //                           msgDate: messageList[index.row].MsgDate ?? "")
-        //
         cellItem.configure(message: messageList[index.row].Messages ?? "",
-                           sender: messageList[index.row].MsgStatus ?? "",
+                           sender: messageList[index.row].Sender ?? "",
                            msgDate: messageList[index.row].MsgDate ?? "")
+        
+        //        cellItem.configure(message: messageList[index.row].Messages ?? "",
+        //                           sender: messageList[index.row].MsgStatus ?? "",
+        //                           msgDate: messageList[index.row].MsgDate ?? "")
         
         if(messageList[index.row].MsgStatus?.uppercased() == "NEW"){
             cellItem.mMessage.font = UIFont.boldSystemFont(ofSize: 14.0)
@@ -267,4 +338,27 @@ extension UITableView {
             return false
         }
         return indexes.contains {$0.section == section && $0.row == row }
-    }  }
+    }
+    
+}
+
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
+}
+
+

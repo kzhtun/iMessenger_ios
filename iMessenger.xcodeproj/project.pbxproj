@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70135BFDC98B8AD19C21AF82 /* Pods_iMessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF55902AEC59AEB9A710457 /* Pods_iMessenger.framework */; };
+		2B619A3724ECE22A00008E3E /* Pods_iMessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D2DF597FC6E3D188E4E0AD /* Pods_iMessenger.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		2B619A3824ECE22A00008E3E /* Pods_iMessenger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 01D2DF597FC6E3D188E4E0AD /* Pods_iMessenger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2B91E38024EF981D00C3097B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B91E37F24EF981C00C3097B /* GoogleService-Info.plist */; };
 		D00C383624E94E5500BA0EE5 /* HeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C383424E94E5500BA0EE5 /* HeaderTableCell.swift */; };
 		D00C383724E94E5500BA0EE5 /* HeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00C383524E94E5500BA0EE5 /* HeaderTableCell.xib */; };
 		D00C383A24EA2A3700BA0EE5 /* NoMessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C383824EA2A3700BA0EE5 /* NoMessageTableCell.swift */; };
@@ -31,10 +33,26 @@
 		D0CC7ED524DD039C006DE262 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CC7ED424DD039C006DE262 /* Router.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2B619A3924ECE22A00008E3E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2B619A3824ECE22A00008E3E /* Pods_iMessenger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		1815568121C195D794376B54 /* Pods-iMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessenger.debug.xcconfig"; path = "Target Support Files/Pods-iMessenger/Pods-iMessenger.debug.xcconfig"; sourceTree = "<group>"; };
-		3C08D2FB4BDC281414041060 /* Pods-iMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessenger.release.xcconfig"; path = "Target Support Files/Pods-iMessenger/Pods-iMessenger.release.xcconfig"; sourceTree = "<group>"; };
-		4BF55902AEC59AEB9A710457 /* Pods_iMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01D2DF597FC6E3D188E4E0AD /* Pods_iMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1473A1A4EA8CB1C6FAAEE67D /* Pods-iMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessenger.release.xcconfig"; path = "Target Support Files/Pods-iMessenger/Pods-iMessenger.release.xcconfig"; sourceTree = "<group>"; };
+		2B91E37F24EF981C00C3097B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2BAC12BE24EFB4C100348AA6 /* iMessenger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iMessenger.entitlements; sourceTree = "<group>"; };
+		64B70671F6C0BD322DE00C0C /* Pods-iMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessenger.debug.xcconfig"; path = "Target Support Files/Pods-iMessenger/Pods-iMessenger.debug.xcconfig"; sourceTree = "<group>"; };
 		D00C383424E94E5500BA0EE5 /* HeaderTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableCell.swift; sourceTree = "<group>"; };
 		D00C383524E94E5500BA0EE5 /* HeaderTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableCell.xib; sourceTree = "<group>"; };
 		D00C383824EA2A3700BA0EE5 /* NoMessageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMessageTableCell.swift; sourceTree = "<group>"; };
@@ -65,17 +83,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70135BFDC98B8AD19C21AF82 /* Pods_iMessenger.framework in Frameworks */,
+				2B619A3724ECE22A00008E3E /* Pods_iMessenger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F38F11086C6859EAA398669 /* Frameworks */ = {
+		4637BBCEE86FB180EEBE1E47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4BF55902AEC59AEB9A710457 /* Pods_iMessenger.framework */,
+				01D2DF597FC6E3D188E4E0AD /* Pods_iMessenger.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,8 +101,8 @@
 		AA0EB63B5C8AD6C8C5A83628 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1815568121C195D794376B54 /* Pods-iMessenger.debug.xcconfig */,
-				3C08D2FB4BDC281414041060 /* Pods-iMessenger.release.xcconfig */,
+				64B70671F6C0BD322DE00C0C /* Pods-iMessenger.debug.xcconfig */,
+				1473A1A4EA8CB1C6FAAEE67D /* Pods-iMessenger.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -95,7 +113,7 @@
 				D056015A24DA783200A01541 /* iMessenger */,
 				D056015924DA783200A01541 /* Products */,
 				AA0EB63B5C8AD6C8C5A83628 /* Pods */,
-				9F38F11086C6859EAA398669 /* Frameworks */,
+				4637BBCEE86FB180EEBE1E47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,9 +128,11 @@
 		D056015A24DA783200A01541 /* iMessenger */ = {
 			isa = PBXGroup;
 			children = (
+				2BAC12BE24EFB4C100348AA6 /* iMessenger.entitlements */,
 				D056017024DA792C00A01541 /* Application */,
 				D056016424DA783300A01541 /* Assets.xcassets */,
 				D056016924DA783300A01541 /* Info.plist */,
+				2B91E37F24EF981C00C3097B /* GoogleService-Info.plist */,
 			);
 			path = iMessenger;
 			sourceTree = "<group>";
@@ -191,11 +211,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D056016C24DA783300A01541 /* Build configuration list for PBXNativeTarget "iMessenger" */;
 			buildPhases = (
-				72D25D2A1C2E7760CA7DD521 /* [CP] Check Pods Manifest.lock */,
+				4A565098FC30152C728EC5E6 /* [CP] Check Pods Manifest.lock */,
 				D056015424DA783200A01541 /* Sources */,
 				D056015524DA783200A01541 /* Frameworks */,
 				D056015624DA783200A01541 /* Resources */,
-				C20CB8AC521A4ED228000B0C /* [CP] Embed Pods Frameworks */,
+				BC5AF16AEB2797D45C4141D8 /* [CP] Embed Pods Frameworks */,
+				2B619A3924ECE22A00008E3E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,15 +271,16 @@
 				D056016324DA783200A01541 /* Main.storyboard in Resources */,
 				D0B62B2724EA720F007B820E /* DevicesTableCell.xib in Resources */,
 				D00C383B24EA2A3700BA0EE5 /* NoMessageTableCell.xib in Resources */,
+				2B91E38024EF981D00C3097B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		72D25D2A1C2E7760CA7DD521 /* [CP] Check Pods Manifest.lock */ = {
+		4A565098FC30152C728EC5E6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -278,9 +300,9 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C20CB8AC521A4ED228000B0C /* [CP] Embed Pods Frameworks */ = {
+		BC5AF16AEB2797D45C4141D8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -450,37 +472,47 @@
 		};
 		D056016D24DA783300A01541 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1815568121C195D794376B54 /* Pods-iMessenger.debug.xcconfig */;
+			baseConfigurationReference = 64B70671F6C0BD322DE00C0C /* Pods-iMessenger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iMessenger/iMessenger.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X32A6FCDS6;
 				INFOPLIST_FILE = iMessenger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.info121.iMessenger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.info121.iMessengerX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		D056016E24DA783300A01541 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C08D2FB4BDC281414041060 /* Pods-iMessenger.release.xcconfig */;
+			baseConfigurationReference = 1473A1A4EA8CB1C6FAAEE67D /* Pods-iMessenger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iMessenger/iMessenger.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X32A6FCDS6;
 				INFOPLIST_FILE = iMessenger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.info121.iMessenger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.info121.iMessengerX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

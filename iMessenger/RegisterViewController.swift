@@ -33,11 +33,17 @@ class RegisterViewController: UIViewController {
         lblName.isHidden = true
         lblMobile.isHidden = true
         
+//        mName.backgroundColor = UIColor.init(cgColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+//          mMobile.backgroundColor = UIColor.init(cgColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+//        
+//        mName.textColor = UIColor.init(cgColor: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
+//         mMobile.textColor = UIColor.init(cgColor: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
     }
     
     
@@ -139,3 +145,6 @@ class RegisterViewController: UIViewController {
     
     
 }
+
+
+

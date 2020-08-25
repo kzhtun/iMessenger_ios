@@ -8,13 +8,24 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
+
 import Toast_Swift
+
+import FirebaseCore
+import FirebaseMessaging
+
+
+
 
 class MainViewController: UIViewController {
     
+    public static let kNotification = Notification.Name("kNotification")
+    
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     let App = UIApplication.shared.delegate as! AppDelegate
+    
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         //        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -26,7 +37,9 @@ class MainViewController: UIViewController {
         //
         //           print("Load Register VC")
         
-        validateUser()
+      
+        NotificationCenter.default.addObserver(self, selector: #selector(validateUser), name: NSNotification.Name(rawValue: "FCMToken"), object: nil)
+       
     }
     
     override func viewDidLoad() {
@@ -37,7 +50,7 @@ class MainViewController: UIViewController {
         print(getSecretKey())
         print(getMobileKey())
         
-        
+        // validateUser()
     }
     
    
@@ -47,7 +60,6 @@ class MainViewController: UIViewController {
             (successObject) in
             if( successObject.responsemessage?.uppercased() == "VALID"){
                 self.App.MOBILE_NO = successObject.UserHP!.replacingOccurrences(of: "+65", with: "")
-               
                 
                 // present Messages Screen
                 let messageVC = self.storyBoard.instantiateViewController(withIdentifier: "MessageVC") as! MessageViewController
@@ -64,7 +76,8 @@ class MainViewController: UIViewController {
         })
     }
     
-    private func validateUser(){
+    @objc
+    public func validateUser(){
         Router.sharedInstance().ValidateUser(deviceId: getDeviceID(), fcmToken: App.FCM_TOKEN, success: {
             (successObject) in
             
